@@ -88,7 +88,6 @@ int SearchOnigRegex( void *str, int str_length, int offset, int option,
 int MatchOnigRegex(void *str, int str_length, int offset, int option,
                   OnigRegex regex) {
     int ret = ONIG_MISMATCH;
-    int error_msg_len = 0;
     OnigRegion *region;
 #ifdef BENCHMARK_CHELP
     struct timeval tim1, tim2;
@@ -180,7 +179,6 @@ int name_callback(const UChar* name, const UChar* name_end,
 }
 
 int GetCaptureNames(OnigRegex reg, void *buffer, int bufferSize, int* groupNumbers) {
-    int ret;
     group_info_t groupInfo;
     groupInfo.nameBuffer = (char*)buffer;
     groupInfo.bufferOffset = 0;
